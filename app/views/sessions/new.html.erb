@@ -1,0 +1,13 @@
+<h1 align="Center">Login to Stock Tracker</h1>
+
+<%= form_for(:session, url:login_path) do |f| %>
+
+<%= f.label :email %>
+<%= f.text_field :email %></br>
+
+<%= f.label :password %>
+<%= f.text_field :password %></br>
+
+<%= f.submit "Submit" %>
+
+<% end %>
