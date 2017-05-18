@@ -1,6 +1,6 @@
 == README
 
-ReadMe for the stock tracker app, part of the Udemy Ruby on Rails course
+ReadMe for the stock tracker app, part of the Udemy Ruby on Rails course. Updated
 
 Things you may want to cover:
 
