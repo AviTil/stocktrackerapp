@@ -1,13 +1,18 @@
 <h1 align="Center">Login to Stock Tracker</h1>
 
+<div class="row jumbotron">
 <%= form_for(:session, url:login_path) do |f| %>
 
-<%= f.label :email %>
-<%= f.text_field :email %></br>
+<%= f.label :email %></br>
+<%= f.text_field :email %></br></br>
 
-<%= f.label :password %>
-<%= f.text_field :password %></br>
+<%= f.label :password %></br>
+<%= f.text_field :password %></br></br>
 
+<div class="btn-lg", style="margin-left:-17px;">
 <%= f.submit "Submit" %>
+</div>
+
+</div>
 
 <% end %>

@@ -10,6 +10,16 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ 
+ 
  *= require_tree .
  *= require_self
  */
+
+.btn {font-weight: bold; background-color: aliceblue;}
+
+.btn-1 {margin-right: 15px;}
+
+.btn-2 {margin-left: 15px;}
+
+.jumbotron {width: 350px; margin-left: 250px; margin-top: 25px; background-color: lightblue;}

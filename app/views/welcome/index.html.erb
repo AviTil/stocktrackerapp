@@ -1,9 +1,18 @@
 <h2 align="Center">Welcome to the Stock Tracker</h2>
 
-<% if session[:user_id] %>
-<%= link_to "Logout", logout_path, method: :delete %>
-
-<% else %>
-<%= link_to "Login", login_path %>
-<%= link_to "Signup", signup_path %>
-<% end %>
+<div class="jumbotron", align="center">
+  <% if session[:user_id] %>
+  <div class="btn btn-lg">
+  <%= link_to "Logout", logout_path, method: :delete %>
+  <% else %>
+  <div class="row">
+  <div class= "btn btn-lg btn-1">
+  <%= link_to "Login", login_path %>
+  </div>
+  <div class ="btn btn-lg btn-2">
+  <%= link_to "Signup", signup_path %>
+  </div>
+  <% end %>
+  </div>
+  </div>
+</div>
