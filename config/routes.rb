@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
   
+  get 'search_stocks' => 'stocks#search'
+  
+  get 'stocks' => 'stocks#index'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

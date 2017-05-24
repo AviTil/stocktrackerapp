@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def new
     @user=User.new 
   end
@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       session[:user_id]=@user.id
       redirect_to root_path
     else
+      flash[:notice]="Please check your details"
       render 'new'
     end
   end
