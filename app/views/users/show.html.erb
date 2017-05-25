@@ -1,3 +1,16 @@
 <h1 align="Center"><%= @user.first_name %>'s Profile</h1>
 
-<%= render 'stocks/lookup' %>
+<%= render 'stocks/lookup' %></br></br>
+
+
+<h3 style="font-size: 1.5em;">Portfolio</h3>
+
+
+<div class="row col-md-12"> 
+  <ul style="padding:20px; margin-left: -5px; line-height: 30px;">
+  <% @user.stocks.each do |f| %>
+  <%= link_to f.name, root_path %></br>
+  <% end %>
+  </ul>
+</div>
+

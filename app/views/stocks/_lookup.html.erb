@@ -22,11 +22,26 @@
         <strong>Symbol:</strong> <%= @stock.ticker %>
         <strong>Name:</strong> <%= @stock.name %>
         <strong>Price:</strong> <%= @stock.last_price %>
+          
+          <div style="margin: 10px;">
+            <% if current_user.can_add_stock?(@stock.ticker) %>
+            <%= link_to "Follow this Stock", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, 
+                        stock_id: @stock.id ? @stock.id: ''), class: "btn-xs btn-success", method: :post %>
+            <% else %>
+              <span class="label label-default">
+              Cannot add this stock. You have already added
+              <% if current_user.stock_already_added?(@stock.ticker) %>
+              this stock
+              <% else %>
+              the maximum number of stocks
+              <% end %>
+              </span>
+            <% end %>
+          </div>
       </div>
-      <% end %>
+    <% end %>
       
       <div id="stock-lookup-errors"></div>
     </div>
-  
   <% end %>
 </div>

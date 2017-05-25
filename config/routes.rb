@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   resources :users, except: [:new]
   
+  resources :user_stocks, except: [:show, :edit, :update]
+  
   get 'signup' => 'users#new'
   
   get 'login' => 'sessions#new'
