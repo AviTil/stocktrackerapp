@@ -4,11 +4,11 @@ class SessionsController<ApplicationController
   end
   
   def create
-    @user=User.find_by(email: params[:session][:email].downcase)
-    if @user && @user.authenticate(params[:session][:password])
-      session[:user_id]=@user.id
+    user=User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+      session[:user_id]=user.id
       flash[:notice]="You are now logged in"
-      redirect_to root_path
+      redirect_to user_path(user)
     else
       flash[:notice]="Please check your details and try again"
       render 'new'

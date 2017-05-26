@@ -1,0 +1,24 @@
+<h1 align="Center">Hello <%= @user.first_name %>! Edit your details here</h1>
+
+<div class="row jumbotron">
+
+<%= form_for(@user) do |f| %>
+
+<%= f.label :first_name %></br>
+<%= f.text_field :first_name %></br></br>
+
+<%= f.label :last_name %></br>
+<%= f.text_field :last_name %></br></br>
+
+<%= f.label :email %></br>
+<%= f.text_field :email %></br></br>
+
+<%= f.label :password %></br>
+<%= f.text_field :password %></br></br>
+
+<div class="btn-lg", style="margin-left:-17px;">
+<%= f.submit "Submit" %>
+</div>
+</div>
+
+<% end %>

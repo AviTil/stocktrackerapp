@@ -1,6 +1,13 @@
 <h1 align="Center"><%= @user.first_name %>'s Profile</h1>
 
-<%= render 'stocks/lookup' %></br></br>
+<div align="Center">
+  <% if current_user==@user %>
+  (<%= link_to "Update Basic Info", edit_user_path(@user) %>)
+  <% end %>
+</div></br>
+
+<%= render 'stocks/lookup' %>
+
 
 
 <h3 style="font-size: 1.5em;">Portfolio</h3>
