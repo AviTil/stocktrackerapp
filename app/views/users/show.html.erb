@@ -9,7 +9,17 @@
 <div class="row col-md-12"> 
   <ul style="padding:20px; margin-left: -5px; line-height: 30px;">
   <% @user.stocks.each do |f| %>
-  <%= link_to f.name, root_path %></br>
+    <div style="border-bottom: solid 1px lightgrey">
+      <div style="font-weight:bold;">
+        <%= f.name %>
+        (<%= f.ticker %>)
+        <% if @user = current_user %>
+        <%= link_to "Delete", user_stock_path(f), method: :delete,
+                              class: "btn-xs btn-danger", style:"float:right; margin-top: 10px;" %>
+        <% end %>
+      </div>
+      Last Price: <%= f.last_price %>
+    </div>
   <% end %>
   </ul>
 </div>
