@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   
   get 'stocks' => 'stocks#index'
   
+  get 'friends' => 'users#friends'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

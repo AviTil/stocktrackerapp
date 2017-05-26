@@ -20,7 +20,7 @@
       <div style="font-weight:bold;">
         <%= f.name %>
         (<%= f.ticker %>)
-        <% if @user = current_user %>
+        <% if current_user==@user %>
         <%= link_to "Delete", user_stock_path(f), method: :delete,
                               class: "btn-xs btn-danger", style:"float:right; margin-top: 10px;" %>
         <% end %>
@@ -31,3 +31,16 @@
   </ul>
 </div>
 
+<h3 style="font-size: 1.5em;">People I'm following</h3>
+
+<div class="row col-md-12", style="padding:20px; margin-left: -5px; line-height: 30px;">
+  <% @user.friends.each do |h| %>
+  <div style="border-bottom: dashed 1px grey;">
+    <%= link_to (h.first_name.capitalize)+" "+(h.last_name.capitalize), user_path(h) %>
+    <% if current_user==@user %>
+    <%= link_to "Delete", user_path(h), method: :delete, 
+                        class: "btn-xs btn-danger", style: "float:right; margin-right:25px;" %>
+    <% end %>
+  </div>  
+  <% end %>
+</div>

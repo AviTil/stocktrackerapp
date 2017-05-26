@@ -18,6 +18,7 @@ before_action :require_same_user, only: [:edit, :update]
     end
   end
   
+  
   def show
     @user=User.find(params[:id])
   end
