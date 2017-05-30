@@ -23,6 +23,10 @@ before_action :require_same_user, only: [:edit, :update]
     @user=User.find(params[:id])
   end
   
+  def index
+    @users=User.all
+  end
+  
   def edit
     @user=User.find(params[:id])
   end
@@ -38,6 +42,19 @@ before_action :require_same_user, only: [:edit, :update]
     end
   end
   
+  def add_friend
+    @friend= User.find(params[:friend])
+    current_user.friendships.build(friend_id: @friend.id) 
+    
+    if current_user.save
+      flash[:success]="You are now following this person"
+      redirect_to user_path(current_user)
+    else
+      flash[:danger]="Cannot follow this person"
+      redirect_to user_path(current_user)
+    end
+  
+  end
   
   private
   

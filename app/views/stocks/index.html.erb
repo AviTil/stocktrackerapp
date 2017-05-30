@@ -1,0 +1,20 @@
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Current Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @stocks.each do |f| %>
+    <tr>
+      <th><%= f.name %></th>
+      <th><%= link_to f.ticker, stock_path(f) %></th>
+      <th><%= f.last_price %></th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -16,7 +16,13 @@ Rails.application.routes.draw do
   
   get 'stocks' => 'stocks#index'
   
+  resources :stocks, only: [:show]
+  
   get 'friends' => 'users#friends'
+  
+  resources :friendships, only: [:new, :create, :destroy]
+  
+  post 'add_friend' => 'users#add_friend'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

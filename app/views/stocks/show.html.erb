@@ -1,0 +1,13 @@
+<h1 class="well"> <%= @stock.name %> (<%= @stock.ticker %>) </h1>
+
+<h3 style="color:slategrey; margin-left: 15px;"> Current Price: <%= @stock.last_price %>
+  <% if current_user.stocks.include?(@stock) %>
+  <%= link_to "Unfollow this Stock", root_path, 
+                                      class: "btn-xs btn-danger btn-3" %>
+  <% end %>
+  <% if !current_user.stocks.include?(@stock) && current_user.stocks.count < 10 %>
+  <%= link_to "Follow this Stock", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, 
+                      stock_id: @stock.id ? @stock.id: ''), class: "btn-xs btn-success btn-3", method: :post %>
+  <% end %>
+   
+</h3>

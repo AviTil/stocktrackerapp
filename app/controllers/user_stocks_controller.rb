@@ -37,10 +37,7 @@ class UserStocksController < ApplicationController
   end
   
   def destroy
-    @user_stock=UserStock.find(params[:id])
-    @user_stock.destroy
-    flash[:success]="Stock has been removed from your portfolio"
-    redirect_to user_path(current_user)
+   
   end
   
   def show

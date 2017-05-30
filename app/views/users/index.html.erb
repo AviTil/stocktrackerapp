@@ -1,0 +1,20 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>E-mail</th>
+      <th>Stocks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |f| %>
+    <tr>
+      <th><%= link_to (f.first_name.capitalize)+" "+(f.last_name.capitalize), user_path(f) %></th>
+      <th><%= f.email %></th>
+      <th><% f.stocks.each do |g| %>
+          <%= link_to g.ticker+",", stock_path(g) %> 
+          <% end %> </th>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
