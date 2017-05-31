@@ -43,16 +43,6 @@ before_action :require_same_user, only: [:edit, :update]
   end
   
   def add_friend
-    @friend= User.find(params[:friend])
-    current_user.friendships.build(friend_id: @friend.id) 
-    
-    if current_user.save
-      flash[:success]="You are now following this person"
-      redirect_to user_path(current_user)
-    else
-      flash[:danger]="Cannot follow this person"
-      redirect_to user_path(current_user)
-    end
   
   end
   

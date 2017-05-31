@@ -21,6 +21,7 @@ class StocksController < ApplicationController
   
   def show
     @stock=Stock.find(params[:id])
+    @user_stock = current_user.user_stocks.find_by(stock_id: params[:id])
   end
 
 end

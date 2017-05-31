@@ -16,8 +16,8 @@
   <%= link_to "Unfollow this person", root_path, class: "btn-lg btn-primary" %>
   <% end %>
   <% if !current_user.friends.include?(@user) && current_user != @user %>
-  <%= link_to "Follow this person", add_friend_path(user: current_user, friend: @user),
-                                        class: "btn-lg btn-primary", method: :post %>
+  <%= link_to "Follow this person", friendships_path(friend: @user), 
+              class: "btn-lg btn-primary", method: :post %>
   <% end %>
 </div>
 

@@ -1,9 +1,12 @@
+<h1 align="center">All Users</h1></br>
+
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>E-mail</th>
       <th>Stocks</th>
+      <th>Following?</th>
     </tr>
   </thead>
   <tbody>
@@ -14,6 +17,9 @@
       <th><% f.stocks.each do |g| %>
           <%= link_to g.ticker+",", stock_path(g) %> 
           <% end %> </th>
+      <th><% if current_user.friends.include?(f) %>
+          Following
+          <% end %></th>
     </tr>
     <% end %>
   </tbody>

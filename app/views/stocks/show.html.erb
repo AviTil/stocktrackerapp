@@ -2,8 +2,9 @@
 
 <h3 style="color:slategrey; margin-left: 15px;"> Current Price: <%= @stock.last_price %>
   <% if current_user.stocks.include?(@stock) %>
-  <%= link_to "Unfollow this Stock", root_path, 
-                                      class: "btn-xs btn-danger btn-3" %>
+  <%= link_to "Unfollow this Stock", 
+              user_stock_path(@user_stock), 
+              class: "btn-xs btn-danger btn-3", :method => :delete %>
   <% end %>
   <% if !current_user.stocks.include?(@stock) && current_user.stocks.count < 10 %>
   <%= link_to "Follow this Stock", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, 
