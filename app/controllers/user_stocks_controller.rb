@@ -45,7 +45,7 @@ class UserStocksController < ApplicationController
   end
   
   def show
-    @user_stock=UserStock.find(params[:id])
+    #@user_stock=UserStock.find(params[:id])
   end
 
 end

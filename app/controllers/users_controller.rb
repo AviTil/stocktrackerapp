@@ -21,6 +21,7 @@ before_action :require_same_user, only: [:edit, :update]
   
   def show
     @user=User.find(params[:id])
+    @friendship=current_user.friendships.find_by(friend_id: params[:id])
   end
   
   def index
@@ -43,7 +44,16 @@ before_action :require_same_user, only: [:edit, :update]
   end
   
   def add_friend
+    
+  end
   
+  def search
+    @followers=User.search(params[:search_param]).uniq
+    if @followers
+      render partial: 'friends/lookup'
+    else
+      render status: :not_found, nothing: true
+    end
   end
   
   private

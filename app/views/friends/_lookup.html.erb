@@ -1,0 +1,44 @@
+<div id="friend-lookup">
+  <h3>Search Users</h3>
+  <%= form_tag search_friends_path, remote: true, method: :get, id: "friend-lookup-form" do %>
+  
+  <div class="form-group row no-padding col-md-12">
+    
+    <div class="col-md-10">
+      <%= text_field_tag :search_param, params[:search_param], placeholder: "first name, last name or email", 
+                              autofocus: true, class: "form-control search-box input-lg" %>
+    </div>
+    
+    <div class="col-md-2">
+      <%= button_tag(type: :submit, class: "btn-lg btn-success") do %>
+      <i class="fa fa-search"></i> Find
+      <% end %>
+    </div>
+
+    <%= render 'common/spinner' %>
+    
+    <% if @followers %>
+      <% if @followers.size > 0 %>
+        <div id= "friend-lookup-results" class= "well results-block col-md-10">
+          <table class="search-results-table col-md-12">
+            <tbody>
+              <% @followers.each do |u| %>
+              <div style="border-bottom: 1px black dashed; padding-bottom: 5px;">
+              <tr><%= u.first_name.capitalize+" "+u.last_name.capitalize %></tr></br>
+              <tr><%= link_to "View #{u.first_name.capitalize}'s Profile",
+                                                user_path(u), class: "btn-xs btn-success" %></tr></br>
+              </div>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% else %>
+      <p class="lead col-md-12">No matches</p>
+      <% end %>
+    <% end %>
+          
+      
+    <div id="friend-lookup-errors"></div>
+  </div>
+  <% end %>
+</div>
